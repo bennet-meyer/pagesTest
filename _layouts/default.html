@@ -13,8 +13,17 @@
       {% if site.title and site.title != page.title %}
       <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
       {% endif %}
-
-      var content = `{{ content }}`;
+      
+      <div id="content">
+      
+      </div>
+      <script>
+        var content = `{{ content }}` + `<div class="exampleBoxBorder" markdown="1">
+        <iframe markdown="1" class="exampleFrame" src="http://pyonly.com/docs/ExampleRunner/showExample.php?file=About/standardExample.py"></iframe>
+        <a markdown="1" href="" style="text-decoration: none;"><button class="runExampleButton">Run it &#10095;</button></a>
+    </div>`;
+        document.getElementById("content").innerHTML = content;
+      </script>
 
       {% if site.github.private != true and site.github.license %}
       <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
